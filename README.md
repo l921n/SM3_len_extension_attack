@@ -6,6 +6,6 @@ SM3的长度扩展攻击
 
 文件说明
 
-my_sm3.py 参照https://www.cnblogs.com/wcwnina/p/13604915.html编写过程中使用的指定iv的sm3简单实现；
+my_sm3.py 参照https://www.cnblogs.com/wcwnina/p/13604915.html 编写过程中使用的指定iv的sm3简单实现；
 
 sm3_len_ext_attack.py 实现初始消息为“Hello SDU CST!20220718”、附加消息为“202000210008”的长度扩展攻击。
