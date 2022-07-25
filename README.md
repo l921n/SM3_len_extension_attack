@@ -30,4 +30,21 @@ sm3_len_ext_attack.py 实现初始消息为“Hello SDU CST!20220718”、附加
     
 ### sm3_len_ext_attack.py
 
-1）
+1）由于定义 sm3 函数传入参数为 list 类型且 库函数中 sm3 对 int 型数据进行处理，因此定义convert函数，完成 str 转换为对应 ASCII 码值组成的列表；代码如下：
+
+    def convert(msg_str):
+    '''
+    将字符串类型消息转换成对应ASCII码组成的列表
+    '''
+    msg = []
+    for item in msg_str:
+        msg.append(ord(item))
+    return msg
+
+2）定义 padding 函数完成 padding ，过程与 my_sm3.py 中一致；但为便于后续处理 msg，需要完成全局 pad 处理，定义 pad 列表与对应 pad_str 变量后，函数进行 global 声明即可。
+
+3）定义长度扩展攻击函数len_ext_hash(known_hash, org_msg_len, exten_msg)：
+
+    将known_hash分组，每组8个字节, 并转换为十进制整数，便于调入 sm3_hash 中；
+    
+    
